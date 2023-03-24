@@ -2,7 +2,7 @@
 //  betterAppleDocumentationApp.swift
 //  betterAppleDocumentation
 //
-//  Created by Maverick Brazill on 3/17/23.
+//  Created by Maverick on 3/17/23.
 //
 
 import SwiftUI
@@ -14,4 +14,10 @@ struct betterAppleDocumentationApp: App {
             ContentView()
         }
     }
+}
+
+
+extension Color{
+    static let appColorWhite = Color("appColorWhite")
+    static let appColorBlack = Color("appColorBlack")
 }

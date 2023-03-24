@@ -2,7 +2,7 @@
 //  exampleViews.swift
 //  betterAppleDocumentation
 //
-//  Created by Maverick Brazill on 3/20/23.
+//  Created by Maverick on 3/20/23.
 //
 
 import SwiftUI
@@ -124,7 +124,6 @@ struct textFieldExample: View{
 }
 
 // MARK: Secure Field
-
 struct secureFieldExample: View{
     @State private var username = ""
     @State private var password = ""
@@ -140,8 +139,79 @@ struct secureFieldExample: View{
             
     }
 }
+
+// MARK: Menu Example
+struct menuExample: View{
+    func void(){
+        /* you can run any function when this button
+         is pressed, common examples include copy/paste
+         or share */
+    }
+    var body: some View{
+        Menu("Clickable Menu"){
+            Button("You can click me", action: void)
+            Text("You cannot click me")
+            
+            Menu("Submenu"){
+                Button("You can click me", action: void)
+                Text("You cannot click me")
+            }
+        }
+    }
+}
+// MARK: List Example
+struct listWorkAround: View{
+    @State private var exampleArr = ["a", "b", "c", "d", "e"]
+    var sheet = listExample()
+    
+    var body: some View{
+        GeometryReader { geo in
+            VStack {
+                EditButton()
+                    .multilineTextAlignment(.center)
+                
+                List{
+                    ForEach(exampleArr, id: \.self){ example in
+                        Text(example)
+                    }.onDelete(perform: { exampleArr.remove(atOffsets: $0)})
+                    .onMove(perform: {exampleArr.move(fromOffsets: $0, toOffset: $1)})
+                    .swipeActions(edge: .trailing, allowsFullSwipe: true){
+                        Button{
+                            //function goes here
+                        }label:{
+                        Image(systemName: "trash")
+                            
+                        }
+                    }
+                }.frame(width: geo.size.width, height: 800)
+            }.padding()
+        }
+
+    }
+}
+
+struct listExample: View{
+    @State var test = false
+    var body: some View{
+        
+        GeometryReader { geo in
+            VStack {
+                Button{
+                    test.toggle()
+                }label:{
+                    Text("Test")
+                        .position(x: geo.size.width/2 )
+                }
+            }.sheet(isPresented: $test){
+                listWorkAround()
+            }
+        }
+    }
+}
+
+
 struct exampleViews_Previews: PreviewProvider {
     static var previews: some View {
-        buttonsExample()
+        listExample()
     }
 }
