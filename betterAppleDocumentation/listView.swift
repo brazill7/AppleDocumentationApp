@@ -23,7 +23,6 @@ struct listView: View{
     var image: String
     var name: String
     var color: Color
-    var override: Bool
     
     @State var scale: Double
     @State var originalScale: Double
@@ -182,7 +181,7 @@ struct listView: View{
                         }
                     AnyView(example)
                         
-                }.scrollDisabled(true)
+                }
             }
             
 //        }.sheet(isPresented: $showingSheet){

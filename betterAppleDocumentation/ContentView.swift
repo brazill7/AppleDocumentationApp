@@ -19,17 +19,19 @@ struct ContentView: View {
                     Section{
                         ForEach(dataList.listData){ data in
                             NavigationLink{
-                                listView(description: data.description, example: data.example, image: data.image, name: data.name, color: data.color, override: data.overrideImageLocation, scale: data.imageScale, originalScale: data.imageScale)
+                                listView(description: data.description, example: data.example, image: data.image, name: data.name, color: data.getColor(colors: data.colorNumber), scale: data.imageScale, originalScale: data.imageScale)
+                                    
                             }label:{
                                 Text(Image(systemName: data.sfSymbol))
-                                    .foregroundColor(data.color)
+                                    .foregroundColor(data.getColor(colors: data.colorNumber))
                                     .fontWeight(.bold)
                                 Text(data.name)
-                                    .foregroundColor(data.color)
+                                    .foregroundColor(data.getColor(colors: data.colorNumber))
                                     .fontWeight(.bold)
+                                    
                             }
-                            
                         }
+                            
                     }header:{
                         Text("Native Components")
                     }

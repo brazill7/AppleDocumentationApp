@@ -14,6 +14,7 @@
 		704E8C1C29C4B42300B9416C /* listStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E8C1B29C4B42300B9416C /* listStuff.swift */; };
 		704E8C1E29C4B50900B9416C /* listView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E8C1D29C4B50900B9416C /* listView.swift */; };
 		704E8C2229C8986E00B9416C /* exampleViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E8C2129C8986E00B9416C /* exampleViews.swift */; };
+		70E9B02F29CF78FC00F178A0 /* appStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E9B02E29CF78FC00F178A0 /* appStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		704E8C1B29C4B42300B9416C /* listStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listStuff.swift; sourceTree = "<group>"; };
 		704E8C1D29C4B50900B9416C /* listView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listView.swift; sourceTree = "<group>"; };
 		704E8C2129C8986E00B9416C /* exampleViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exampleViews.swift; sourceTree = "<group>"; };
+		70E9B02E29CF78FC00F178A0 /* appStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				704E8C1B29C4B42300B9416C /* listStuff.swift */,
 				704E8C1D29C4B50900B9416C /* listView.swift */,
 				704E8C2129C8986E00B9416C /* exampleViews.swift */,
+				70E9B02E29CF78FC00F178A0 /* appStorage.swift */,
 				704E8C1129C4AFA300B9416C /* Assets.xcassets */,
 				704E8C1329C4AFA300B9416C /* Preview Content */,
 			);
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				704E8C1E29C4B50900B9416C /* listView.swift in Sources */,
+				70E9B02F29CF78FC00F178A0 /* appStorage.swift in Sources */,
 				704E8C1029C4AFA200B9416C /* ContentView.swift in Sources */,
 				704E8C0E29C4AFA200B9416C /* betterAppleDocumentationApp.swift in Sources */,
 				704E8C2229C8986E00B9416C /* exampleViews.swift in Sources */,
