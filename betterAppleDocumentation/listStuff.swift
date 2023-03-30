@@ -13,7 +13,6 @@ struct Data: Identifiable{
     var name: String
     var sfSymbol: String
     var colorNumber: Int
-    //var height: Int
     var description: String
     var example: any View
     var image: String
@@ -41,10 +40,9 @@ struct Data: Identifiable{
             return Color.appColorBlack
         }
     }
-    
 }
 
-class listsData: ObservableObject{
+class nativeComponentsList: ObservableObject{
     @Published var listData:[Data] = [
         Data(name: "Alerts",
              sfSymbol: "exclamationmark.triangle",
@@ -57,8 +55,8 @@ class listsData: ObservableObject{
                  sfSymbol: "hand.tap",
                 colorNumber: 1,
                 description: "We can create tappable 'buttons' that when pressed by a user can run any function definined by the programmer, There are 5 button styles we can apply as modifiers to the buttons, shown below (by default the color of a button is blue (except for the plain style (black)) but this can be overrid using .foregroundColor)",
-                 example: AnyView(buttonsExample()),
-                 image: "buttons", imageScale: 0.14),
+                 example: buttonsExample(),
+             image: "buttons", imageScale: 0.14),
         
         Data(name: "Color Picker",
              sfSymbol: "paintpalette",
@@ -70,28 +68,35 @@ class listsData: ObservableObject{
         Data(name: "Date Picker",
              sfSymbol: "calendar",
              colorNumber: 6,
-             description: "",
+             description: "This allows users to use the calendar to select a single date",
              example: datePickerExample(),
              image: "datepicker", imageScale: 0.28),
+        
+        Data(name: "Date Picker (Multiple)",
+             sfSymbol: "calendar.badge.plus",
+             colorNumber: 5,
+             description: "This can allow users to select multiple dates, which could be used for creating events, scheduling appointments etc...",
+             example: datePickerMultipleExample(),
+             image: "datepickermulti", imageScale: 0.32),
         
         Data(name: "Importing Images",
                  sfSymbol: "photo",
              colorNumber: 2, description: "In Xcode you can import any image on your computer and name it, to import a image, you drag a photo into the Assets folder in Xcode, or hit the plus button in the bottom corner of the Assets folder then click import, then call whatever you name the image by using the syntax Image(then in quotes your images name), this example photos name in the Assets folder is puppy",
-                 example: AnyView(importingImages()) ,
-                 image: "importingimages", imageScale: 0.85),
+                 example: importingImages() ,
+             image: "importingimages", imageScale: 0.85),
         
         Data(name: "List",
                 sfSymbol: "list.clipboard",
              colorNumber: 3, description: "Lists are very common and provide a way to easily show off an array of items, Apple makes it very easy to intgrate deleting items off the list, and moving the items in the list around. Aswell as those actions you can also use the .listStyle modifier to change how your lists look",
                 example: listWorkAround(),
-                image: "lists", imageScale: 0.3),
+             image: "lists", imageScale: 0.3),
         
         Data(name: "Menu",
                  sfSymbol: "filemenu.and.selection",
                  colorNumber: 4,
                  description: "Menus are usually used to copy/paste things, along with sharing and editing certain peramaters on items",
                  example: menuExample(),
-                 image: "menu", imageScale: 0.48),
+             image: "menu", imageScale: 0.48),
         
         Data(name: "Pickers",
              sfSymbol: "checklist",
@@ -100,26 +105,14 @@ class listsData: ObservableObject{
              example: pickerExample(),
              image: "picker", imageScale: 0.35),
         
-        Data(name: "Tab View",
-             sfSymbol: "platter.2.filled.iphone.landscape",
-             colorNumber: 2,
-             description: "Tab Views allow users to easily switch between different views by just hitting an icon on the bottom of the screen, the most common example of this is social media apps",
-             example: tabViewExample(),
-             image: "tabview", imageScale: 0.3),
         
-        Data(name: "Text Fields",
-                 sfSymbol: "text.viewfinder",
-                 colorNumber: 6,
-                 description: "Text Field are a way we can grab input from the user and assign it to a value where we can store and use for future uses, such as asking for their name",
-                 example: AnyView(textFieldExample()),
-                image: "textfield", imageScale: 0.3),
         
         Data(name: "Secure Field",
                  sfSymbol: "lock",
                  colorNumber: 7,
                  description: "Secure Fields are normally used with passwords and other information you wouldn't want someone to see if they looked over your shoulder, in swift it will just turn all of the characters typed in the field into dots",
                 example: secureFieldExample(),
-                image: "securefield", imageScale: 0.48),
+             image: "securefield", imageScale: 0.48),
         
         Data(name: "Sheets",
              sfSymbol: "menubar.arrow.up.rectangle",
@@ -128,12 +121,53 @@ class listsData: ObservableObject{
              example: sheetExample(),
              image: "sheets", imageScale: 0.4),
         
+        Data(name: "Slider",
+             sfSymbol: "slider.horizontal.below.rectangle",
+             colorNumber: 2,
+             description: "",
+             example: sliderExample(),
+             image: "slider", imageScale: 0.37),
+        
+        Data(name: "Stepper",
+             sfSymbol: "plus.forwardslash.minus",
+             colorNumber: 4,
+             description: "A stepper can be used to incriment numbers in an easy + or - view, common uses include age, and zoom",
+             example: stepperExample(), image: "stepper", imageScale: 0.3),
+        
         Data(name: "String Interpolation",
                  sfSymbol: "text.word.spacing",
                  colorNumber: 1,
                  description: "String Interpolation is a way of taking an already declared variable and making is usable in a String or Text, The way you Interpolate Strings in Swift is using the syntax backslash(nameOfVariable)",
                  example: stringInterpolationExample(),
              image: "stringinterpolation", imageScale: 0.5),
+        
+        Data(name: "Tab View",
+             sfSymbol: "platter.2.filled.iphone.landscape",
+             colorNumber: 2,
+             description: "Tab Views allow users to easily switch between different views by just hitting an icon on the bottom of the screen, the most common example of this is social media apps",
+             example: tabViewExample(),
+             image: "tabview", imageScale: 0.3),
+        
+        Data(name: "Text Editor",
+             sfSymbol: "text.viewfinder",
+             colorNumber: 1,
+             description: "A Text Editor is essentially a multiline TextField that can also be used to edit and change existing text",
+             example: textEditorExample(),
+             image: "texteditor", imageScale: 0.4),
+        
+        Data(name: "Text Fields",
+                 sfSymbol: "character.textbox",
+                 colorNumber: 6,
+                 description: "Text Field are a way we can grab input from the user and assign it to a value where we can store and use for future uses, such as asking for their name",
+                 example: textFieldExample(),
+             image: "textfield", imageScale: 0.6),
+        
+        Data(name: "Toggle",
+             sfSymbol: "switch.2",
+             colorNumber: 3,
+             description: "Toggles are like on/off switches that we can use in a multiple of different ways, common examples include Show Advanced Options, Show Password(on SecureFields to remove the privacy dots), Closed Captioning, etc...",
+             example: toggleExample(),
+             image: "toggle", imageScale: 0.5)
         
     ]
 }

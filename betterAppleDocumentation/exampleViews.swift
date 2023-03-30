@@ -187,7 +187,24 @@ struct MyDatePickerStyle: Equatable, Hashable{
     }
 }
 
+//MARK: Date Picker (Multiple)
+struct datePickerMultipleExample: View{
+    @Environment(\.calendar) var calendar
+    @State var dates: Set<DateComponents> = []
 
+    var selectedDates: String{
+        dates.compactMap{ components in
+            calendar.date(from: components)?.formatted(date: .long, time: .omitted)
+        }.formatted()
+    }
+    
+    var body: some View{
+        VStack{
+            MultiDatePicker("Pick Dates", selection: $dates)
+            Text(selectedDates)
+        }.padding()
+    }
+}
 // MARK: Text Fields
 struct textFieldExample: View{
     @State var data: String = ""
@@ -233,6 +250,24 @@ struct secureFieldExample: View{
             .multilineTextAlignment(.center)
             .border(Color.appColorBlack)
             
+    }
+}
+// MARK: Stepper Example
+struct stepperExample: View{
+    @State var num1 = 0
+    @State var num2 = 0
+    
+    var body: some View{
+        VStack {
+            Stepper("Incriment Number", value: $num1, in: 0...100)
+            Text("Current number is \(num1)")
+            
+            Spacer()
+            
+            Stepper("Custom Incriment", onIncrement: {num2 += 2}, onDecrement: {num2 -= 2})
+            Text("Current number is \(num2)")
+            
+        }
     }
 }
 
@@ -445,6 +480,49 @@ struct tabItemTwo: View{
     }
 }
 
+//MARK: Text Editor
+struct textEditorExample: View{
+    @State private var text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+    
+    var body: some View{
+        TextEditor(text: $text)
+            .frame(width: 400, height: 400)
+            .border(Color.pink)
+            .opacity(0.6)
+    }
+}
+
+//MARK: Toggle Example
+
+struct toggleExample: View{
+    @State private var isToggleOn = false
+    
+    var body: some View{
+        VStack{
+            Toggle("Button Toggle", isOn: $isToggleOn)
+                .toggleStyle(.button)
+            Toggle("Switch Toggle", isOn: $isToggleOn)
+                .toggleStyle(.switch)
+            
+            if isToggleOn{
+                Text("Toggle is on")
+            }
+        }.padding()
+    }
+}
+//MARK: Slider Example
+
+struct sliderExample: View{
+    @State var num = 0.0
+    var body: some View{
+        VStack {
+            Slider(value: $num, in: -100...100)
+            Text(num.rounded().description) // .description turns the
+                                    // value from an int to a string
+        }
+    }
+}
+
 
 // MARK: Sheets Example
 
@@ -473,6 +551,6 @@ struct sheetExample: View{
 
 struct exampleViews_Previews: PreviewProvider {
     static var previews: some View {
-        tabViewExample()
+        toggleExample()
     }
 }

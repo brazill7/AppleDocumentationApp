@@ -17,12 +17,15 @@ struct listView: View{
     @State var targetHeight = CGFloat(370)
     @State var resetPos = false
     @State var showingSheet = false
+    @State var copiedCode = false
     
     var description: String
     var example: any View
     var image: String
     var name: String
     var color: Color
+    
+    let pasteboard = UIPasteboard.general
     
     @State var scale: Double
     @State var originalScale: Double
@@ -78,6 +81,7 @@ struct listView: View{
                                 .frame(width: geo.size.width - 20, height: self.isShowingCode ? targetHeight : 0)
                                 //.animation(.linear, value: isShowingCode)
                                 .overlay{
+                                    
                                     if refreshingView{
                                         ProgressView()
                                             .foregroundColor(.appColorBlack)
@@ -108,7 +112,13 @@ struct listView: View{
                                                     
                                                 }label:{
                                                     Menu("Copy\nCode"){
-                                                        Button("Copy Code to Clipboard", action: void)
+                                                        Button("Copy Code to Clipboard"){
+                                                            pasteboard.string = "testing"
+                                                            copiedCode = true
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                                                                copiedCode = false
+                                                            }
+                                                        }
                                                         Button("Save Image", action: void)
                                                     }
                                                     .foregroundColor(.black)
@@ -162,6 +172,13 @@ struct listView: View{
                                             
                                         }
                                         .deferredRendering(for: 0.5)
+                                    }
+                                    
+                                    //shows up when code is copied
+                                    if copiedCode{
+                                        Text("Successfully Copied Code to Clipboard")
+                                            .background(Color.gray)
+                                            .padding()
                                     }
                                 }
                         }.onChange(of: isShowingCode){ newState in
