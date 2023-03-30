@@ -24,6 +24,7 @@ struct listView: View{
     var image: String
     var name: String
     var color: Color
+    var codeText: String
     
     let pasteboard = UIPasteboard.general
     
@@ -111,15 +112,12 @@ struct listView: View{
                                                 Button{
                                                     
                                                 }label:{
-                                                    Menu("Copy\nCode"){
-                                                        Button("Copy Code to Clipboard"){
-                                                            pasteboard.string = "testing"
-                                                            copiedCode = true
-                                                            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                                                                copiedCode = false
-                                                            }
+                                                    Button("Copy Code"){
+                                                        pasteboard.string = codeText
+                                                        copiedCode = true
+                                                        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                                                            copiedCode = false
                                                         }
-                                                        Button("Save Image", action: void)
                                                     }
                                                     .foregroundColor(.black)
                                                     .fontWeight(.bold)
@@ -177,8 +175,11 @@ struct listView: View{
                                     //shows up when code is copied
                                     if copiedCode{
                                         Text("Successfully Copied Code to Clipboard")
-                                            .background(Color.gray)
-                                            .padding()
+                                            .background{
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .foregroundColor(.gray)
+                                                    .padding(EdgeInsets(top: -10, leading: -10, bottom: -10, trailing: -10))
+                                            }
                                     }
                                 }
                         }.onChange(of: isShowingCode){ newState in

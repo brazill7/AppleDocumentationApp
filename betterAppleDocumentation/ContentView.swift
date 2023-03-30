@@ -19,7 +19,7 @@ struct ContentView: View {
                     Section{
                         ForEach(nativeComponents.listData){ data in
                             NavigationLink{
-                                listView(description: data.description, example: data.example, image: data.image, name: data.name, color: data.getColor(colors: data.colorNumber), scale: data.imageScale, originalScale: data.imageScale)
+                                listView(description: data.description, example: data.example, image: data.image, name: data.name, color: data.getColor(colors: data.colorNumber), codeText: data.codeText, scale: data.imageScale, originalScale: data.imageScale)
                                     
                             }label:{
                                 Text(Image(systemName: data.sfSymbol))
