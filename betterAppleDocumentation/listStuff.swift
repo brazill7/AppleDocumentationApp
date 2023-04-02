@@ -85,6 +85,14 @@ class nativeComponentsList: ObservableObject{
              image: "datepickermulti", imageScale: 0.32,
              codeText: datePickerMultipleExample().code),
         
+        Data(name: "Geometry Reader",
+             sfSymbol: "aspectratio",
+             colorNumber: 8,
+             description: "Geometry Reader scans the device the user is using and allows the Programmer to code without having to worry about device sizes, with Geometry Reader you can place things depeding on the users screen dimensions, and change the width or height of shapes in order to conform to the smaller or larger screen size",
+             example: geometryReaderExample(),
+             image: "geometryreader", imageScale: 0.35,
+             codeText: geometryReaderExample().code),
+        
         Data(name: "Importing Images",
                  sfSymbol: "photo",
              colorNumber: 2, description: "In Xcode you can import any image on your computer and name it, to import a image, you drag a photo into the Assets folder in Xcode, or hit the plus button in the bottom corner of the Assets folder then click import, then call whatever you name the image by using the syntax Image(then in quotes your images name), this example photos name in the Assets folder is puppy",
@@ -115,7 +123,21 @@ class nativeComponentsList: ObservableObject{
              image: "picker", imageScale: 0.35,
              codeText: pickerExample().code),
         
+        Data(name: "Progress View",
+             sfSymbol: "circle.dotted",
+             colorNumber: 3,
+             description: "Progress Views can be shown to show the user that data is still loading, and can show how much of certain data is downloaded, and how much is left.",
+             example: progressViewExample(),
+             image: "progressview", imageScale: 0.3,
+             codeText: progressViewExample().code),
         
+        Data(name: "Raw Strings",
+             sfSymbol: "character",
+             colorNumber: 1,
+             description: "Raw strings allow you to show any text including escape sequences that wouldn't normally show",
+             example: rawStringExample(),
+             image: "rawstrings", imageScale: 0.6,
+             codeText: rawStringExample().code),
         
         Data(name: "Secure Field",
                  sfSymbol: "lock",

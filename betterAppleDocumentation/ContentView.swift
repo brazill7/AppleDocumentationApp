@@ -27,7 +27,7 @@ struct ContentView: View {
                                     .fontWeight(.bold)
                                 Text(data.name)
                                     .foregroundColor(data.getColor(colors: data.colorNumber))
-                                    .fontWeight(.bold)
+                                    .fontWeight(.black)
                                 
                             }
                         }

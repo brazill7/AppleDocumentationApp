@@ -361,6 +361,48 @@ struct datePickerMultipleExample: View{
         }.padding()
     }
 }
+// MARK: Geometry Reader
+struct geometryReaderExample: View{
+    @State var num: CGFloat = 0
+    @State public var code = #"""
+struct geometryReaderExample: View{
+    @State var num: CGFloat = 0
+    
+    var body: some View{
+        GeometryReader{ geometry in
+            VStack(alignment: .center) {
+                Text("Rectangle with the size of half the screen")
+                
+                VStack {
+                    Rectangle()
+                        .frame(width: (geometry.size.width/2), height: 200)
+                        .foregroundColor(Color.blue)
+                }
+                
+                //setting the position of the view determined by the geometry reader
+            }.position(x: geometry.frame(in: .local).midX, y: 150)
+        }
+    }
+}
+"""#
+    
+    var body: some View{
+        GeometryReader{ geometry in
+            VStack(alignment: .center) {
+                Text("Rectangle with the size of half the screen")
+                
+                VStack {
+                    Rectangle()
+                        .frame(width: (geometry.size.width/2), height: 200)
+                        .foregroundColor(Color.blue)
+                }
+                
+                //setting the position of the view determined by the geometry reader
+            }.position(x: geometry.frame(in: .local).midX, y: 150)
+        }
+    }
+}
+
 // MARK: Text Fields
 struct textFieldExample: View{
     @State var data: String = ""
@@ -937,9 +979,86 @@ struct sheetExample: View{
     }
 }
 
+// MARK: Raw Strings
+struct rawStringExample: View{
+    @State var text = "hello world"
+    @State public var code = #"""
+struct rawStringExample: View{
+    @State var text = "hello world"
+    var body: some View{
+        VStack {
+            Text("The text is \(text)")
+            Text(#"The text is \(text)"#)
+        }
+    }
+}
+"""#
+    var body: some View{
+        VStack {
+            Text("The text is \(text)")
+            Text(#"The text is \(text)"#)
+        }
+    }
+}
+
+//MARK: ProgressView
+struct progressViewExample: View{
+    @State var count = 0.0
+    
+    //this uses the users clock to publish an update every second
+    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    
+    @State public var code = #"""
+struct progressViewExample: View{
+    @State var count = 0.0
+    
+    //this uses the users clock to publish an update every second
+    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    
+    var body: some View{
+        VStack {
+            Text("Circular Progress")
+            ProgressView()
+                .progressViewStyle(.circular)
+            Spacer()
+            Text("Linear Progress")
+            ProgressView("Downloading...", value: count, total: 100)
+                .progressViewStyle(.linear)
+        }.padding()
+        
+        //this function recieves the update and then performs the function
+        .onReceive(timer) { _ in
+                if count < 100 {
+                    count += 2
+                }
+            }
+    }
+}
+"""#
+    
+    var body: some View{
+        VStack {
+            Text("Circular Progress")
+            ProgressView()
+                .progressViewStyle(.circular)
+            Spacer()
+            Text("Linear Progress")
+            ProgressView("Downloading...", value: count, total: 100)
+                .progressViewStyle(.linear)
+        }.padding()
+        
+        //this function recieves the update and then performs the function
+        .onReceive(timer) { _ in
+                if count < 100 {
+                    count += 2
+                }
+            }
+    }
+}
+
 
 struct exampleViews_Previews: PreviewProvider {
     static var previews: some View {
-        toggleExample()
+        progressViewExample()
     }
 }
