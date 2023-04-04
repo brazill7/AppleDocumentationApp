@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct listView: View{
+    @State var localData = appStorage()
     @State private var isShowingCode = false
     @State private var isShowingImage = false
     @State private var refreshingView = false
@@ -47,8 +48,6 @@ struct listView: View{
         
     }
     
-
-    
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -74,7 +73,9 @@ struct listView: View{
                     ZStack{
                             RoundedRectangle(cornerRadius: 10)
                                 
-                                .fill(self.isShowingCode ? color : .appColorBlack)
+                                .fill(self.isShowingCode ?
+                                      color :
+                                     .appColorBlack)
                                 .frame(width: geo.size.width - 20, height: self.isShowingCode ? targetHeight : 1)
                             RoundedRectangle(cornerRadius: 10)
                                 
@@ -96,13 +97,12 @@ struct listView: View{
                                                             .resizable()
                                                             .scaledToFit()
                                                             //.deferredRendering(for: 0.5)
-                                                            .foregroundColor(.gray)
-                                                            .id(1)
+                                                            //.foregroundColor(.gray)
                                                             .scaleEffect(scale)
                                                             .gesture(magnification)
                                                             
                                                         }
-                                                    }
+                                            }
                                             Rectangle()
                                                 .frame(height: 2)
                                                 .padding(EdgeInsets(top: -10, leading: 0, bottom: 0, trailing: 0))
@@ -154,8 +154,9 @@ struct listView: View{
                                                         Image(systemName: "minus.square")
                                                             .font(.system(size: 50))
                                                             .foregroundColor(.black)
+                                                            .opacity((scale > 0.11) ? 1.0 : 0.2)
                                                     }
-                                                }
+                                                }.disabled((scale > 0.11) ? false : true)
                                                 ///up scale
                                                 Button{
                                                     scale += 0.1
@@ -185,11 +186,12 @@ struct listView: View{
                         }.onChange(of: isShowingCode){ newState in
                             isShowingImage.toggle()
                         }
+                    if (localData.description == true){
                         Text(description)
-                            .multilineTextAlignment(.center)
-                            .padding()
+                                .multilineTextAlignment(.center)
+                                .padding()
                             .font(.system(size: 20))
-                        
+                    }
                         HStack{
                             Text("Example:")
                                 .font(.system(size: 30))
@@ -199,7 +201,7 @@ struct listView: View{
                         }
                     AnyView(example)
                         
-                }
+                }.scrollIndicators(.hidden)
             }
             
 //        }.sheet(isPresented: $showingSheet){
