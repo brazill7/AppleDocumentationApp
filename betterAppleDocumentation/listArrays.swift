@@ -69,6 +69,14 @@ class nativeComponentsList: ObservableObject{
              image: "colorpicker", imageScale: 0.33,
              codeText: colorPickerExample().code),
         
+        Data(name: "Confirmation Dialogue",
+             sfSymbol: "person.fill.checkmark",
+             colorNumber: 3,
+             description: "",
+             example: confirmationDialogue(),
+             image: "confrmationdialogue", imageScale: 0.35,
+             codeText: confirmationDialogue().code),
+        
         Data(name: "Date Picker",
              sfSymbol: "calendar",
              colorNumber: 6,
@@ -85,10 +93,18 @@ class nativeComponentsList: ObservableObject{
              image: "datepickermulti", imageScale: 0.32,
              codeText: datePickerMultipleExample().code),
         
+        Data(name: "Disclosure Groups",
+             sfSymbol: "chevron.down",
+             colorNumber: 4,
+             description: "",
+             example: disclosureGroupExample(),
+             image: "disclosuregroup", imageScale: 0.35,
+             codeText: disclosureGroupExample().code),
+        
         Data(name: "ForEach",
              sfSymbol: "arrow.triangle.2.circlepath",
              colorNumber: 1,
-             description: "",
+             description: "ForEach in Swift is a way to display components using a for loop, in an easier way",
              example: forEachExample(),
              image: "foreach", imageScale: 0.2,
              codeText: forEachExample().code),
@@ -276,6 +292,22 @@ class nativeComponentsList: ObservableObject{
              codeText: toggleExample().code)
         
     ]
+}
+
+//MARK: Enviroment Objects
+
+class enviromentObjectsList: ObservableObject{
+    @Published var listData:[Data] = [
+    Data(name: "Light / Dark Mode",
+         sfSymbol:"sun.haze",
+         colorNumber: 2,
+         description: "",
+         example: darkLightModeExamlple(),
+         image: "", imageScale: 1.0,
+         codeText: "")
+
+    ]
+
 }
 
 

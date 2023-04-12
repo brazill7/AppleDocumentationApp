@@ -202,13 +202,13 @@ struct listView: View{
                     AnyView(example)
                         
                 }.scrollIndicators(.hidden)
-            }
+            }.toolbar(.hidden)
             
 //        }.sheet(isPresented: $showingSheet){
 //            //AnyView(example)
         }
     }
-    }
+}
 
 
 
