@@ -7,11 +7,7 @@
 
 import SwiftUI
 
-
-
-
-
-// MARK: String Interpolation
+// MARK: -String Interpolation
 struct stringInterpolationExample: View{
     var profileName = "Andy"
     var age = "18"
@@ -40,7 +36,7 @@ struct stringInterpolationExample: View{
         
     }
 }
-// MARK: Importing Images
+// MARK: -Importing Images
 struct importingImages: View{
     @State public var code = #"""
     struct importingImages: View{
@@ -58,7 +54,7 @@ struct importingImages: View{
     }
 }
 
-// MARK: Alerts
+// MARK: -Alerts
 struct alertsExample: View{
     @State private var showingAlert = false
     @State public var code = #"""
@@ -92,7 +88,7 @@ struct alertsExample: View{
     }
 }
 
-// MARK: Buttons
+// MARK: -Buttons
 struct buttonsExample: View{
     @State var counter = 0
     @State var colorSwitch = false
@@ -215,7 +211,7 @@ struct buttonsExample: View{
         
     }
 }
-// MARK: Color Picker
+// MARK: -Color Picker
 struct colorPickerExample: View{
     @State private var selectedColor = Color.purple
     @State public var code = #"""
@@ -243,7 +239,7 @@ struct colorPickerExample: View{
         }
     }
 }
-//MARK: Date Picker
+//MARK: -Date Picker
 struct datePickerExample: View{
     @State private var selectedDate = Date.now // can be any date, acts as a placeholder
                                                // until the user selects their date
@@ -325,7 +321,7 @@ struct MyDatePickerStyle: Equatable, Hashable{
     }
 }
 
-//MARK: Date Picker (Multiple)
+//MARK: -Date Picker (Multiple)
 struct datePickerMultipleExample: View{
     @Environment(\.calendar) var calendar
     @State var dates: Set<DateComponents> = []
@@ -361,7 +357,7 @@ struct datePickerMultipleExample: View{
         }.padding()
     }
 }
-// MARK: Geometry Reader
+// MARK: -Geometry Reader
 struct geometryReaderExample: View{
     @State var num: CGFloat = 0
     @State public var code = #"""
@@ -403,7 +399,7 @@ struct geometryReaderExample: View{
     }
 }
 
-// MARK: Text Fields
+// MARK: -Text Fields
 struct textFieldExample: View{
     @State var data: String = ""
     @FocusState private var isFocused
@@ -465,7 +461,7 @@ struct textFieldExample: View{
     }
 }
 
-// MARK: Secure Field
+// MARK: -Secure Field
 struct secureFieldExample: View{
     @State private var username = ""
     @State private var password = ""
@@ -497,7 +493,7 @@ struct secureFieldExample: View{
             
     }
 }
-// MARK: Stepper Example
+// MARK: -Stepper Example
 struct stepperExample: View{
     @State var num1 = 0
     @State var num2 = 0
@@ -535,7 +531,7 @@ struct stepperExample: View{
     }
 }
 
-// MARK: Menu Example
+// MARK: -Menu Example
 struct menuExample: View{
     @State public var code = #"""
 struct menuExample: View{
@@ -574,7 +570,7 @@ struct menuExample: View{
         }
     }
 }
-// MARK: List Example
+// MARK: -List Example
 struct listExample: View{
     @State private var exampleArr = ["a", "b", "c", "d", "e"]
     @State public var code = #"""
@@ -704,7 +700,7 @@ struct listWorkAround: View{
         }
     }
 }
-// MARK: Picker Example
+// MARK: -Picker Example
 
 struct pickerExample: View{
     @State var favoriteNumber = 0
@@ -791,7 +787,7 @@ struct MyPickerStyle: Equatable, Hashable {
         hasher.combine(name)
     }
 }
-// MARK: Tab View
+// MARK: -Tab View
 
 struct tabViewExample: View{
     @State public var code = #"""
@@ -850,7 +846,7 @@ struct tabItemTwo: View{
     }
 }
 
-//MARK: Text Editor
+//MARK: -Text Editor
 struct textEditorExample: View{
     @State private var text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
     @State public var code = #"""
@@ -872,7 +868,7 @@ struct textEditorExample: View{
     }
 }
 
-//MARK: Toggle Example
+//MARK: -Toggle Example
 
 struct toggleExample: View{
     @State private var isToggleOn = false
@@ -907,7 +903,7 @@ struct toggleExample: View{
         }.padding()
     }
 }
-//MARK: Slider Example
+//MARK: -Slider Example
 
 struct sliderExample: View{
     @State public var code = #"""
@@ -933,7 +929,7 @@ struct sliderExample: View{
 }
 
 
-// MARK: Sheets Example
+// MARK: -Sheets Example
 
 struct sheetExample: View{
     @State var isShowingSheet = false
@@ -979,7 +975,7 @@ struct sheetExample: View{
     }
 }
 
-// MARK: Raw Strings
+// MARK: -Raw Strings
 struct rawStringExample: View{
     @State var text = "hello world"
     @State public var code = #"""
@@ -1001,7 +997,7 @@ struct rawStringExample: View{
     }
 }
 
-//MARK: ProgressView
+//MARK: -ProgressView
 struct progressViewExample: View{
     @State var count = 0.0
     
@@ -1055,7 +1051,7 @@ struct progressViewExample: View{
             }
     }
 }
-// MARK: Gauge Example
+// MARK: -Gauge Example
 
 struct gaugeExample: View{
     @State var value = 0.0
@@ -1143,7 +1139,7 @@ struct MyGaugeStyle: Equatable, Hashable{
         hasher.combine(name)
     }
 }
-// MARK: Gradients
+// MARK: -Gradients
 struct gradientExample: View{
     @State var code = #"""
 struct gradientExample: View{
@@ -1286,7 +1282,7 @@ struct gradientExample: View{
         }.padding()
     }
 }
-//MARK: Shapes
+//MARK: -Shapes
 struct shapeExample: View{
     @State public var code = #"""
 struct shapeExample: View{
@@ -1399,7 +1395,7 @@ struct shapeExample: View{
         }
     }
 }
-//MARK: FullScreenSheet
+//MARK: -FullScreenSheet
 struct fullScreenSheetExample: View{
     @State var isPresented = false
     @State public var code = #"""
@@ -1455,7 +1451,7 @@ struct fullScreenSheetView: View{
     }
 }
 
-//MARK: Navigation Link
+//MARK: -Navigation Link
 struct navigationLinkView: View{
     @State public var code = #"""
 struct navigationLinkView: View{
@@ -1490,7 +1486,7 @@ struct destinationExample: View{
         Text("Hello World!")
     }
 }
-//MARK: Ternary Operators
+//MARK: -Ternary Operators
 struct ternaryOperatorExample: View{
     @State private var toggle = false
     @State public var code = #"""
@@ -1515,7 +1511,7 @@ struct ternaryOperatorExample: View{
         }.padding()
     }
 }
-//MARK: External Link
+//MARK: -External Link
 struct linkExample: View{
     @State public var code = #"""
 struct linkExample: View{
@@ -1543,7 +1539,7 @@ struct linkExample: View{
     }
 }
 
-//MARK: ForEach
+//MARK: -ForEach
 struct forEachExample: View{
     //grabing our array of data
     @State var displayedData = dataExample()
@@ -1621,7 +1617,7 @@ class dataExample{
     ]
 }
 
-//MARK: Disclosure Groups
+//MARK: -Disclosure Groups
 
 struct disclosureGroupExample: View{
     @State var isExpanded = false
@@ -1657,7 +1653,7 @@ struct disclosureGroupExample: View{
     }
 }
 
-//MARK: Confirmation Dialogue
+//MARK: -Confirmation Dialogue
 
 struct confirmationDialogue: View{
     @State private var isPresented = false
@@ -1708,6 +1704,47 @@ struct confirmationDialogue: View{
             Button("Cancel", role: .cancel) { confirmation = "Cancelled" }
         }message:{
             Text("Confirm or Deny")
+        }
+    }
+}
+//MARK: - Detect Dark/Light Mode
+struct darkLightModeExamlple: View{
+    @Environment(\.colorScheme) var colorScheme
+    public var code = #"""
+struct darkLightModeExamlple: View{
+    @Environment(\.colorScheme) var colorScheme
+    var body: some View{
+        VStack {
+            //see ternary operators
+            Text((colorScheme == .light) ? "Light Mode Detected" : "Dark Mode Detected")
+            
+            Rectangle()
+                .foregroundColor((colorScheme == .light) ? Color.green : Color.red)
+                .frame(width: 300, height: 300)
+            
+            if (colorScheme == .light){
+                Circle()
+                    .frame(width:200, height: 200)
+            }
+            
+        }
+    }
+}
+"""#
+    var body: some View{
+        VStack {
+            //see ternary operators
+            Text((colorScheme == .light) ? "Light Mode Detected" : "Dark Mode Detected")
+            
+            Rectangle()
+                .foregroundColor((colorScheme == .light) ? Color.green : Color.red)
+                .frame(width: 300, height: 300)
+            
+            if (colorScheme == .light){
+                Circle()
+                    .frame(width:200, height: 200)
+            }
+            
         }
     }
 }

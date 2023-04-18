@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
    
     @StateObject var nativeComponents = nativeComponentsList()
-    @StateObject var enviromentObjects = enviromentObjectsList()
+    @StateObject var kitComponents = kitExamplesList()
     @State private var isPresented = false
     
     @State private var searchText = ""
@@ -24,11 +24,11 @@ struct ContentView: View {
         }
     }
     
-    var searchResultsEnviroment: [Data]{
+    var searchResultsKits: [Data]{
         if searchText.isEmpty{
-            return enviromentObjects.listData
+            return kitComponents.listData
         }else{
-            return enviromentObjects.listData.filter{$0.name.contains(searchText)}
+            return kitComponents.listData.filter{$0.name.contains(searchText)}
         }
     }
 
@@ -44,7 +44,7 @@ struct ContentView: View {
                         Section{
                             ForEach(searchResultsNativeComponents){ data in
                                 NavigationLink{
-                                    
+                                    listView(description: data.description, example: data.example, image: data.image, name: data.name, color: data.getColor(colors: data.colorNumber), codeText: data.codeText, scale: data.imageScale, originalScale: data.imageScale)
                                 }label:{
                                     Text(Image(systemName: data.sfSymbol))
                                         .foregroundColor(data.getColor(colors: data.colorNumber))
@@ -63,9 +63,9 @@ struct ContentView: View {
                          .font(.system(size: 25))
                         }.listRowSeparatorTint(.appColorBlack)
                         
-                        //MARK: Enviroment Objects
+                        //MARK: Kits
                         Section{
-                            ForEach(searchResultsEnviroment){ data in
+                            ForEach(searchResultsKits){ data in
                                 NavigationLink{
                                     listView(description: data.description, example: data.example, image: data.image, name: data.name, color: data.getColor(colors: data.colorNumber), codeText: data.codeText, scale: data.imageScale, originalScale: data.imageScale)
                                     
@@ -81,7 +81,7 @@ struct ContentView: View {
                             }
                             
                         }header:{
-                            Text("Enviroment Objects")
+                            Text("Swift Kits")
                                 .foregroundColor(.appColorBlack)
                                 .fontWeight(.bold)
                                 .font(.system(size: 25))
@@ -92,14 +92,10 @@ struct ContentView: View {
                     .padding(.top, -15.0)
                     .scrollIndicators(.hidden)
                     .listStyle(.inset)
-                    .searchable(text: $searchText)
+                    .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
                     
                     
-                }/*.fullScreenCover(isPresented: $isPresented){
-                    ForEach(searchResultsNativeComponents) { data in
-                        listView(description: data.description, example: data.example, image: data.image, name: data.name, color: data.getColor(colors: data.colorNumber), codeText: data.codeText, scale: data.imageScale, originalScale: data.imageScale)
-                    }
-                }*/
+                }
                 .padding()
             }
         }

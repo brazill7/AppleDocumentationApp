@@ -93,6 +93,14 @@ class nativeComponentsList: ObservableObject{
              image: "datepickermulti", imageScale: 0.32,
              codeText: datePickerMultipleExample().code),
         
+        Data(name: "Detecting Light / Dark Mode",
+             sfSymbol:"sun.haze",
+             colorNumber: 2,
+             description: "",
+             example: darkLightModeExamlple(),
+             image: "darklightmode", imageScale: 0.3,
+             codeText: darkLightModeExamlple().code),
+        
         Data(name: "Disclosure Groups",
              sfSymbol: "chevron.down",
              colorNumber: 4,
@@ -296,13 +304,13 @@ class nativeComponentsList: ObservableObject{
 
 //MARK: Enviroment Objects
 
-class enviromentObjectsList: ObservableObject{
+class kitExamplesList: ObservableObject{
     @Published var listData:[Data] = [
-    Data(name: "Light / Dark Mode",
-         sfSymbol:"sun.haze",
+    Data(name: "void",
+         sfSymbol:"",
          colorNumber: 2,
          description: "",
-         example: darkLightModeExamlple(),
+         example: EmptyView(),
          image: "", imageScale: 1.0,
          codeText: "")
 
