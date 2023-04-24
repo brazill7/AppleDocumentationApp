@@ -116,6 +116,8 @@ struct ContentView: View {
                         }label: {
                             Image(systemName: "gear")
                                 .foregroundColor(.gray)
+                                .font(.system(size: 25))
+                                .fontWeight(.bold)
                         }
                     })
                     

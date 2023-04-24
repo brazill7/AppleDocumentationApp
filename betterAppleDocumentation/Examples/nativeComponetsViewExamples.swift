@@ -526,7 +526,7 @@ struct stepperExample: View{
             Stepper("Custom Increment", onIncrement: {num2 += 2}, onDecrement: {num2 -= 2})
             Text("Current number is \(num2)")
             
-        }
+        }.padding()
     }
 }
 
