@@ -7,25 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		701D383829F027670097CDE8 /* kits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D383729F027670097CDE8 /* kits.swift */; };
 		704E8C0E29C4AFA200B9416C /* betterAppleDocumentationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E8C0D29C4AFA200B9416C /* betterAppleDocumentationApp.swift */; };
 		704E8C1029C4AFA200B9416C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E8C0F29C4AFA200B9416C /* ContentView.swift */; };
 		704E8C1229C4AFA300B9416C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 704E8C1129C4AFA300B9416C /* Assets.xcassets */; };
 		704E8C1529C4AFA300B9416C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 704E8C1429C4AFA300B9416C /* Preview Assets.xcassets */; };
-		704E8C1C29C4B42300B9416C /* listStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E8C1B29C4B42300B9416C /* listStuff.swift */; };
+		704E8C1C29C4B42300B9416C /* nativeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E8C1B29C4B42300B9416C /* nativeComponents.swift */; };
 		704E8C1E29C4B50900B9416C /* listView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E8C1D29C4B50900B9416C /* listView.swift */; };
-		704E8C2229C8986E00B9416C /* exampleViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E8C2129C8986E00B9416C /* exampleViews.swift */; };
+		704E8C2229C8986E00B9416C /* nativeComponetsViewExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704E8C2129C8986E00B9416C /* nativeComponetsViewExamples.swift */; };
+		70AA24AF29F2B45F00744042 /* mapKitExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AA24AE29F2B45F00744042 /* mapKitExamples.swift */; };
+		70D23F8029DC5406001880C1 /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D23F7F29DC5406001880C1 /* settingsView.swift */; };
 		70E9B02F29CF78FC00F178A0 /* appStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E9B02E29CF78FC00F178A0 /* appStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		701D383729F027670097CDE8 /* kits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kits.swift; sourceTree = "<group>"; };
 		704E8C0A29C4AFA200B9416C /* betterAppleDocumentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = betterAppleDocumentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		704E8C0D29C4AFA200B9416C /* betterAppleDocumentationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = betterAppleDocumentationApp.swift; sourceTree = "<group>"; };
 		704E8C0F29C4AFA200B9416C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		704E8C1129C4AFA300B9416C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		704E8C1429C4AFA300B9416C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		704E8C1B29C4B42300B9416C /* listStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listStuff.swift; sourceTree = "<group>"; };
+		704E8C1B29C4B42300B9416C /* nativeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nativeComponents.swift; sourceTree = "<group>"; };
 		704E8C1D29C4B50900B9416C /* listView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listView.swift; sourceTree = "<group>"; };
-		704E8C2129C8986E00B9416C /* exampleViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exampleViews.swift; sourceTree = "<group>"; };
+		704E8C2129C8986E00B9416C /* nativeComponetsViewExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nativeComponetsViewExamples.swift; sourceTree = "<group>"; };
+		70AA24AE29F2B45F00744042 /* mapKitExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapKitExamples.swift; sourceTree = "<group>"; };
+		70D23F7F29DC5406001880C1 /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
 		70E9B02E29CF78FC00F178A0 /* appStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -40,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		701D383629F0273F0097CDE8 /* List Arrays */ = {
+			isa = PBXGroup;
+			children = (
+				704E8C1B29C4B42300B9416C /* nativeComponents.swift */,
+				701D383729F027670097CDE8 /* kits.swift */,
+			);
+			path = "List Arrays";
+			sourceTree = "<group>";
+		};
 		704E8C0129C4AFA200B9416C = {
 			isa = PBXGroup;
 			children = (
@@ -61,10 +76,11 @@
 			children = (
 				704E8C0D29C4AFA200B9416C /* betterAppleDocumentationApp.swift */,
 				704E8C0F29C4AFA200B9416C /* ContentView.swift */,
-				704E8C1B29C4B42300B9416C /* listStuff.swift */,
 				704E8C1D29C4B50900B9416C /* listView.swift */,
-				704E8C2129C8986E00B9416C /* exampleViews.swift */,
 				70E9B02E29CF78FC00F178A0 /* appStorage.swift */,
+				70D23F7F29DC5406001880C1 /* settingsView.swift */,
+				701D383629F0273F0097CDE8 /* List Arrays */,
+				70D23FA329E0415E001880C1 /* Examples */,
 				704E8C1129C4AFA300B9416C /* Assets.xcassets */,
 				704E8C1329C4AFA300B9416C /* Preview Content */,
 			);
@@ -77,6 +93,23 @@
 				704E8C1429C4AFA300B9416C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		70AA24AD29F2B44800744042 /* Kit Examples */ = {
+			isa = PBXGroup;
+			children = (
+				70AA24AE29F2B45F00744042 /* mapKitExamples.swift */,
+			);
+			path = "Kit Examples";
+			sourceTree = "<group>";
+		};
+		70D23FA329E0415E001880C1 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				704E8C2129C8986E00B9416C /* nativeComponetsViewExamples.swift */,
+				70AA24AD29F2B44800744042 /* Kit Examples */,
+			);
+			path = Examples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,11 +183,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				704E8C1E29C4B50900B9416C /* listView.swift in Sources */,
+				70AA24AF29F2B45F00744042 /* mapKitExamples.swift in Sources */,
 				70E9B02F29CF78FC00F178A0 /* appStorage.swift in Sources */,
+				70D23F8029DC5406001880C1 /* settingsView.swift in Sources */,
+				701D383829F027670097CDE8 /* kits.swift in Sources */,
 				704E8C1029C4AFA200B9416C /* ContentView.swift in Sources */,
 				704E8C0E29C4AFA200B9416C /* betterAppleDocumentationApp.swift in Sources */,
-				704E8C2229C8986E00B9416C /* exampleViews.swift in Sources */,
-				704E8C1C29C4B42300B9416C /* listStuff.swift in Sources */,
+				704E8C2229C8986E00B9416C /* nativeComponetsViewExamples.swift in Sources */,
+				704E8C1C29C4B42300B9416C /* nativeComponents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +322,8 @@
 				DEVELOPMENT_TEAM = 6X6KX8WVK5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = betterAppleDocumentation/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We are asking to use your location so we can show you our example";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -315,6 +353,8 @@
 				DEVELOPMENT_TEAM = 6X6KX8WVK5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = betterAppleDocumentation/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We are asking to use your location so we can show you our example";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

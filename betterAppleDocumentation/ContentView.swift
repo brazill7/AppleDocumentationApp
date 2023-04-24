@@ -13,6 +13,7 @@ struct ContentView: View {
     @StateObject var kitComponents = kitExamplesList()
     @State var localData = appStorage()
     @State  var searchText = ""
+    
     var searchResultsNativeComponents: [Data] {
         if searchText.isEmpty {
             return nativeComponents.listData
