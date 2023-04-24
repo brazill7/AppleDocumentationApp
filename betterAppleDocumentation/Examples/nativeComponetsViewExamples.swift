@@ -4,7 +4,6 @@
 //
 //  Created by Maverick on 3/20/23.
 //
-
 import SwiftUI
 
 // MARK: -String Interpolation
@@ -1749,8 +1748,45 @@ struct darkLightModeExamlple: View{
     }
 }
 
+struct shareLinkExample: View{
+    let link = URL(string: "https://www.apple.com")!
+    public var code = #"""
+struct shareLinkExample: View{
+    let link = URL(string: "https://www.apple.com")!
+    
+    var body: some View{
+        VStack{
+            ShareLink("Apple's Website", item: link)
+            
+            Spacer()
+            
+            ShareLink(item: link){
+                Text("\(Image(systemName: "link.circle")) - Share Apple's Website!")
+                    .foregroundColor(.green)
+            }
+        }
+    }
+}
+"""#
+    
+    var body: some View{
+        VStack{
+            ShareLink("Apple's Website", item: link)
+            
+            Spacer()
+            
+            ShareLink(item: link){
+                Text("\(Image(systemName: "link.circle")) - Share Apple's Website!")
+                    .foregroundColor(.green)
+            }
+        }
+    }
+}
+
+
+
 struct exampleViews_Previews: PreviewProvider {
     static var previews: some View {
-       confirmationDialogue()
+       shareLinkExample()
     }
 }

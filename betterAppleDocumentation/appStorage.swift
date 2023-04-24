@@ -12,5 +12,6 @@ import SwiftUI
 class appStorage: ObservableObject{
     @AppStorage("test") var testInt = 0
     @AppStorage("description") var description = true
-    @AppStorage("pinnedCode") var pinned = false
+    @AppStorage("first") var first = true
+    
 }

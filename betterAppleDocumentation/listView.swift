@@ -34,6 +34,14 @@ struct listView: View{
     
     let pasteboard = UIPasteboard.general
     
+    func toggleSidebar() {
+           #if os(iOS)
+           #else
+            NSApp.sendAction(#selector(NSSplitViewController.toggleSidebar(_:)), to: nil, from: nil)
+           #endif
+
+        }
+    
     @State var scale: Double
     @State var originalScale: Double
     @State var lastScale = 1.0
@@ -48,12 +56,7 @@ struct listView: View{
                 lastScale = 1.0
             }
     }
-    
-    func void(){
-        
-    }
-  
-
+      
     var body: some View {
         GeometryReader { geo in
             VStack(alignment: .leading) {
@@ -218,12 +221,23 @@ struct listView: View{
                             
                     }.scrollIndicators(.hidden)
                         .toolbar({
-                            #if os(iOS)
-                            .hidden
-                            #else
-                            .visible
-                            #endif
+                            if UIDevice.current.userInterfaceIdiom == .phone{
+                                return .hidden
+                            }else{
+                                return .visible
+                            }
                         }())
+                        .toolbar(content: {
+                            if UIDevice.current.userInterfaceIdiom == .phone{
+                                
+                            }else{
+                                Button{
+                                    toggleSidebar()
+                                }label:{
+                                    
+                                }
+                            }
+                        })
                 }
             }
             

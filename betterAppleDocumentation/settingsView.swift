@@ -8,20 +8,71 @@
 import SwiftUI
 
 struct settingsView: View {
+    @Environment(\.dismiss) var dismiss: DismissAction
     @State var localData = appStorage()
+    
+    func toggleSidebar() {
+           #if os(iOS)
+           #else
+            NSApp.sendAction(#selector(NSSplitViewController.toggleSidebar(_:)), to: nil, from: nil)
+           #endif
+
+        }
+    
     var body: some View {
-        VStack{
-            HStack{
-                Text("Settings")
-                    .font(.system(size: 40))
-                    .fontWeight(.bold)
-                    
-                Spacer()
+        VStack(alignment: .leading) {
+            if UIDevice.current.userInterfaceIdiom == .phone{
+                Button{
+                    dismiss()
+                }label:{
+                    Text("\(Image(systemName: "arrow.left")) Back")
+                }.padding()
             }
-            Toggle("Description of Uses for Examples", isOn: $localData.description)
+            VStack{
+                HStack{
+                    /// header
+                    Text("Settings")
+                        .font(.system(size: 40))
+                        .fontWeight(.bold)
+                        .foregroundColor(.gray)
+                        
+                        
+                    Spacer()
+                }
+                /// description of uses
+                Toggle("Description of Uses for Examples", isOn: $localData.description)
+                    .padding()
+                /// link to survey
+                HStack{
+                    Text("Suggest Additions: ")
+                   Link("Link  \(Image(systemName: "link"))", destination: URL(string: "https://forms.gle/GGKykgipBAUJegiT7")!)
+                        .buttonStyle(.borderedProminent)
+                        
+                }
+                Spacer()
+            
+                
+            }.toolbar({
+                if UIDevice.current.userInterfaceIdiom == .phone{
+                    return .hidden
+                }else{
+                    return .visible
+                }
+            }())
+            .toolbar(content: {
+                if UIDevice.current.userInterfaceIdiom == .phone{
+                    
+                }else{
+                    Button{
+                        toggleSidebar()
+                    }label:{
+                        
+                    }
+                }
+            })
                 .padding()
-            Spacer()
-        }.padding()
+        }
+        
     }
 }
 
