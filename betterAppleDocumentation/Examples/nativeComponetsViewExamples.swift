@@ -166,6 +166,7 @@ struct buttonsExample: View{
                     .multilineTextAlignment(.center)
             }.buttonStyle(.automatic)
                 .padding()
+                .disabled( (self.counter > 1000000) ? true : false)
             
             ///borderless
             Button{
@@ -175,6 +176,7 @@ struct buttonsExample: View{
                     .foregroundColor(colorSwitch ? secondColor : currentColor)
                     .multilineTextAlignment(.center)
             }.buttonStyle(.borderless)
+                
                 .padding()
             
             ///plain
@@ -186,6 +188,7 @@ struct buttonsExample: View{
     
             }.buttonStyle(.plain)
                 .padding()
+                
             
             ///bordered
             Button{
@@ -196,6 +199,7 @@ struct buttonsExample: View{
     
             }.buttonStyle(.bordered)
                 .padding()
+                .disabled( (self.counter > 1000000) ? true : false)
             ///borderedProminent
             Button{
                 self.counter /= 2
@@ -205,6 +209,7 @@ struct buttonsExample: View{
     
             }.buttonStyle(.borderedProminent)
                 .padding()
+                
         }
         
         

@@ -20,7 +20,7 @@ struct listView: View{
     
     @State private var baseHeight: CGFloat = 0
     @State var refreshCount = 0
-    @State var targetHeight = CGFloat(370)
+
     @State var resetPos = false
     @State var showingSheet = false
     @State var copiedCode = false
@@ -34,6 +34,14 @@ struct listView: View{
     
     let pasteboard = UIPasteboard.general
     
+    var targetHeight: CGFloat{
+        if UIDevice.current.userInterfaceIdiom == .phone{
+            return CGFloat(380)
+        }else{
+            return CGFloat(700)
+        }
+    }
+    
     func toggleSidebar() {
            #if os(iOS)
            #else
@@ -41,20 +49,53 @@ struct listView: View{
            #endif
 
         }
+
+    //MARK: - Scale / Magnification
+    @State var iOSscale: Double
+    @State var originaliOSScale: Double
     
-    @State var scale: Double
-    @State var originalScale: Double
+    @State var macPadOSScale: Double
+    @State var macPadOSORginialScale: Double
+    
     @State var lastScale = 1.0
-    var magnification: some Gesture{
+    var magnificationiOS: some Gesture{
         MagnificationGesture()
             .onChanged{ state in
                 let delta = state / lastScale
-                scale *= delta
+                iOSscale *= delta
                 lastScale = state
             }
             .onEnded{ state in
                 lastScale = 1.0
             }
+    }
+    var magnificationMacPad: some Gesture{
+        MagnificationGesture()
+            .onChanged{ state in
+                let delta = state / lastScale
+                macPadOSScale *= delta
+                lastScale = state
+            }
+            .onEnded{ state in
+                lastScale = 1.0
+            }
+    }
+    
+    
+    func determineScale() -> Double{
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return self.iOSscale
+        }else{
+            return self.macPadOSScale
+        }
+    }
+    
+    func determineMagnification() -> any Gesture{
+        if UIDevice.current.userInterfaceIdiom == .phone{
+            return self.magnificationiOS
+        }else{
+            return self.magnificationMacPad
+        }
     }
       
     var body: some View {
@@ -116,8 +157,9 @@ struct listView: View{
                                                                 .scaledToFit()
                                                                 //.deferredRendering(for: 0.5)
                                                                 //.foregroundColor(.gray)
-                                                                .scaleEffect(scale)
-                                                                .gesture(magnification)
+                                                                .scaleEffect(determineScale())
+                                                                .gesture(magnificationiOS)
+                                                                .gesture(magnificationMacPad)
                                                                 
                                                             }
                                                 }
@@ -157,7 +199,11 @@ struct listView: View{
                                                     }
                                                     Spacer()
                                                     Button{
-                                                        scale = originalScale
+                                                        if UIDevice.current.userInterfaceIdiom == .phone{
+                                                            iOSscale = originaliOSScale
+                                                        }else{
+                                                            macPadOSScale = macPadOSORginialScale
+                                                        }
                                                     }label:{
                                                         Text("Reset\nZoom")
                                                             .foregroundColor(.black)
@@ -166,18 +212,26 @@ struct listView: View{
                                                     Spacer()
                                                     ///lower scale
                                                     Button{
-                                                        scale -= 0.1
+                                                        if UIDevice.current.userInterfaceIdiom == .phone{
+                                                            iOSscale -= 0.1
+                                                        }else{
+                                                            macPadOSScale -= 0.1
+                                                        }
                                                     }label:{
                                                         HStack{
                                                             Image(systemName: "minus.square")
                                                                 .font(.system(size: 50))
                                                                 .foregroundColor(.black)
-                                                                .opacity((scale > 0.11) ? 1.0 : 0.2)
+                                                                .opacity((determineScale() > 0.11) ? 1.0 : 0.2)
                                                         }
-                                                    }.disabled((scale > 0.11) ? false : true)
+                                                    }.disabled((determineScale() > 0.11) ? false : true)
                                                     ///up scale
                                                     Button{
-                                                        scale += 0.1
+                                                        if UIDevice.current.userInterfaceIdiom == .phone{
+                                                            iOSscale += 0.1
+                                                        }else{
+                                                            macPadOSScale += 0.1
+                                                        }
                                                     }label:{
                                                         HStack{
                                                             Image(systemName: "plus.app")
@@ -186,7 +240,7 @@ struct listView: View{
                                                         }
                                                     }
                                                 }.padding(EdgeInsets(top: -8, leading: 10, bottom: 8, trailing: 10))
-                                                
+
                                             }
                                             .deferredRendering(for: 0.5)
                                         }

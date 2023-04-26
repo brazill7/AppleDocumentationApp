@@ -9,120 +9,14 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
-    @StateObject var nativeComponents = nativeComponentsList()
-    @StateObject var kitComponents = kitExamplesList()
     @State var localData = appStorage()
-    @State  var searchText = ""
-    
-    var searchResultsNativeComponents: [Data] {
-        if searchText.isEmpty {
-            return nativeComponents.listData
-        } else {
-            return nativeComponents.listData.filter{$0.name.contains(searchText)}
-        }
-    }
-    
-    var searchResultsKits: [kitData]{
-        if searchText.isEmpty{
-            return kitComponents.listData
-        }else{
-            return kitComponents.listData.filter{$0.name.contains(searchText)}
-        }
-    }
+
     
     var body: some View {
         NavigationView{
             ZStack {
                 VStack {
-                    List{
-                        //MARK: -Kits
-                        Section{
-                            ForEach(searchResultsKits) { kit in
-                                DisclosureGroup("\(Image(systemName: kit.sfSymbol)) \(kit.name)"){
-                                    ForEach(kit.data) { data in
-                                        NavigationLink{
-                                            listView(description: data.description, example: data.example, image: data.image, name: data.name, color: data.getColor(colors: data.colorNumber), codeText: data.codeText, scale: data.imageScale, originalScale: data.imageScale)
-                                        }label:{
-                                            Text(Image(systemName: data.sfSymbol))
-                                                .foregroundColor(data.getColor(colors: data.colorNumber))
-                                                .fontWeight(.bold)
-                                            Text(data.name)
-                                                .foregroundColor(data.getColor(colors: data.colorNumber))
-                                                .fontWeight(.black)
-                                        }
-                                    }
-                                }.foregroundColor(kit.color)
-                                    .fontWeight(.black)
-                            }
-                            
-                        }header:{
-                            Text("Swift Kits")
-                                .foregroundColor(.appColorBlack)
-                                .fontWeight(.bold)
-                                .font(.system(size: 25))
-                                .background{
-                                    if UIDevice.current.userInterfaceIdiom == .phone{
-                                        
-                                    }else{
-                                        Rectangle()
-                                            .foregroundColor(.lightGray)
-                                            .padding(EdgeInsets(top: -8, leading: -800, bottom: -8, trailing: -800))
-                                    }
-                                }
-                                
-                        }.listRowSeparatorTint(.appColorBlack)
-                        
-                        
-                        //MARK: -Native Components
-                        Section{
-                            ForEach(searchResultsNativeComponents){ data in
-                                NavigationLink{
-                                    listView(description: data.description, example: data.example, image: data.image, name: data.name, color: data.getColor(colors: data.colorNumber), codeText: data.codeText, scale: data.imageScale, originalScale: data.imageScale)
-                                }label:{
-                                    Text(Image(systemName: data.sfSymbol))
-                                        .foregroundColor(data.getColor(colors: data.colorNumber))
-                                        .fontWeight(.bold)
-                                    Text(data.name)
-                                        .foregroundColor(data.getColor(colors: data.colorNumber))
-                                        .fontWeight(.black)
-                                    
-                                }
-                            }
-                            
-                        }header:{
-                         Text("Native SwiftUI Components")
-                         .foregroundColor(.appColorBlack)
-                         .fontWeight(.bold)
-                         .font(.system(size: 25))
-                         .background{
-                             if UIDevice.current.userInterfaceIdiom == .phone{
-                                 
-                             }else{
-                                 Rectangle()
-                                     .foregroundColor(.lightGray)
-                                     .padding(EdgeInsets(top: -8, leading: -800, bottom: -8, trailing: -800))
-                             }
-                         }
-                        }.listRowSeparatorTint(.appColorBlack)
-                            .foregroundColor(.appColorBlack)
-                    }
-                    .padding(.top, -15.0)
-                    .scrollIndicators(.hidden)
-                    .listStyle(.inset)
-                    .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
-                    .toolbar(content: {
-                        NavigationLink{
-                            settingsView()
-                        }label: {
-                            Image(systemName: "gear")
-                                .foregroundColor(.gray)
-                                .font(.system(size: 25))
-                                .fontWeight(.bold)
-                        }
-                    })
-                    
-                    
-                    
+                    sectionDetailedView()
                 }
                 .padding()
             }
