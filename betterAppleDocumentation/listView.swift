@@ -6,11 +6,9 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct listView: View{
     @Environment(\.dismiss) var dismiss: DismissAction
-    
     
     @State private var columnVisibility = NavigationSplitViewVisibility.automatic
     @State var localData = appStorage()
@@ -69,6 +67,7 @@ struct listView: View{
                 lastScale = 1.0
             }
     }
+    
     var magnificationMacPad: some Gesture{
         MagnificationGesture()
             .onChanged{ state in
@@ -97,6 +96,7 @@ struct listView: View{
             return self.magnificationMacPad
         }
     }
+    //MARK: - BODY
       
     var body: some View {
         GeometryReader { geo in

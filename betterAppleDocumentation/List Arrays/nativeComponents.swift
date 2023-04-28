@@ -194,7 +194,7 @@ class nativeComponentsList: ObservableObject{
              colorNumber: 3,
              description: "Pickers are a simple way of being able to display a lot of options for a user to click on, to either customize their experience, or enter in information such as age",
              example: pickerExample(),
-             image: "picker", imageScaleiOS: 0.35, imageScaleMacPadOS: 1,
+             image: "picker", imageScaleiOS: 0.35, imageScaleMacPadOS: 0.7,
              codeText: pickerExample().code),
         
         Data(name: "Progress View",
@@ -202,7 +202,7 @@ class nativeComponentsList: ObservableObject{
              colorNumber: 4,
              description: "Progress Views can be shown to show the user that data is still loading, and can show how much of certain data is downloaded, and how much is left.",
              example: progressViewExample(),
-             image: "progressview", imageScaleiOS: 0.3, imageScaleMacPadOS: 1,
+             image: "progressview", imageScaleiOS: 0.3, imageScaleMacPadOS: 0.68,
              codeText: progressViewExample().code),
         
         Data(name: "Raw Strings",
@@ -210,7 +210,7 @@ class nativeComponentsList: ObservableObject{
              colorNumber: 5,
              description: "Raw strings allow you to show any text including escape sequences that wouldn't normally show, the syntax is a # before and after any string quotation marks",
              example: rawStringExample(),
-             image: "rawstrings", imageScaleiOS: 0.6, imageScaleMacPadOS: 1,
+             image: "rawstrings", imageScaleiOS: 0.6, imageScaleMacPadOS: 1.2,
              codeText: rawStringExample().code),
         
         Data(name: "Secure Field",
@@ -218,7 +218,7 @@ class nativeComponentsList: ObservableObject{
                  colorNumber: 6,
                  description: "Secure Fields are normally used with passwords and other information you wouldn't want someone to see if they looked over your shoulder, in swift it will just turn all of the characters typed in the field into dots",
                 example: secureFieldExample(),
-             image: "securefield", imageScaleiOS: 0.48, imageScaleMacPadOS: 1,
+             image: "securefield", imageScaleiOS: 0.48, imageScaleMacPadOS: 0.95,
              codeText: secureFieldExample().code),
         
         Data(name: "Shapes",
@@ -226,7 +226,7 @@ class nativeComponentsList: ObservableObject{
              colorNumber: 7,
              description: "Swift makes it easy to implement shapes into your code, aswell as an option to create custom shapes from scratch using Path()",
              example: shapeExample(),
-             image: "shape", imageScaleiOS: 0.15, imageScaleMacPadOS: 1,
+             image: "shape", imageScaleiOS: 0.15, imageScaleMacPadOS: 0.3,
              codeText: shapeExample().code),
         
         Data(name: "Share Link",
@@ -234,7 +234,7 @@ class nativeComponentsList: ObservableObject{
              colorNumber: 8,
              description: "ShareLink allows you to easily give the user an easy way to share something from your app, usually your apps download code, or an email, or something that they have earned if you make a game",
              example: shareLinkExample(),
-             image: "sharelink", imageScaleiOS: 0.3, imageScaleMacPadOS: 1,
+             image: "sharelink", imageScaleiOS: 0.3, imageScaleMacPadOS: 0.6,
              codeText: shareLinkExample().code),
         
         Data(name: "Sheets",
@@ -242,7 +242,7 @@ class nativeComponentsList: ObservableObject{
              colorNumber: 1,
              description: "Sheets can be pulled up from the bottom of the screen and pop up a different view, to dismiss the sheet the user can swipe down, or you can create a simple dismiss button",
              example: sheetExample(),
-             image: "sheets", imageScaleiOS: 0.4, imageScaleMacPadOS: 1,
+             image: "sheets", imageScaleiOS: 0.4, imageScaleMacPadOS: 0.8,
              codeText: sheetExample().code),
         
         Data(name: "Slider",
@@ -250,7 +250,7 @@ class nativeComponentsList: ObservableObject{
              colorNumber: 2,
              description: "Sliders are an easy way to get an input for a value in an easy way for the user to interpret and use just by the swipe of their finger",
              example: sliderExample(),
-             image: "slider", imageScaleiOS: 0.37, imageScaleMacPadOS: 1,
+             image: "slider", imageScaleiOS: 0.37, imageScaleMacPadOS: 0.7,
              codeText: sliderExample().code),
         
         Data(name: "Stepper",
@@ -258,7 +258,7 @@ class nativeComponentsList: ObservableObject{
              colorNumber: 3,
              description: "A stepper can be used to incriment numbers in an easy + or - view, common uses include age, and zoom",
              example: stepperExample(),
-             image: "stepper", imageScaleiOS: 0.28, imageScaleMacPadOS: 1,
+             image: "stepper", imageScaleiOS: 0.28, imageScaleMacPadOS: 0.4,
              codeText: stepperExample().code),
         
         Data(name: "String Interpolation",
@@ -266,7 +266,7 @@ class nativeComponentsList: ObservableObject{
                  colorNumber: 4,
                  description: "String Interpolation is a way of taking an already declared variable and making is usable in a String or Text, The way you Interpolate Strings in Swift is using the syntax backslash(nameOfVariable)",
                  example: stringInterpolationExample(),
-             image: "stringinterpolation", imageScaleiOS: 0.5, imageScaleMacPadOS: 1,
+             image: "stringinterpolation", imageScaleiOS: 0.5, imageScaleMacPadOS: 0.9,
              codeText: stringInterpolationExample().code),
         
         Data(name: "Tab View",
@@ -274,7 +274,7 @@ class nativeComponentsList: ObservableObject{
              colorNumber: 5,
              description: "Tab Views allow users to easily switch between different views by just hitting an icon on the bottom of the screen, the most common example of this is social media apps",
              example: tabViewExample(),
-             image: "tabview", imageScaleiOS: 0.3, imageScaleMacPadOS: 1,
+             image: "tabview", imageScaleiOS: 0.3, imageScaleMacPadOS: 0.6,
              codeText: tabViewExample().code),
         
         Data(name: "Ternary Operators",
@@ -282,7 +282,7 @@ class nativeComponentsList: ObservableObject{
              colorNumber: 6,
              description: "Ternary Operators are a way for you to display information based on if a value is true or false, they are commonly used as replacements for if else statements.\n\nThe sytax is: ((bool == condition) ? (will occur if () returns true) : (will occur if () returns false)\n\n(bool) ? (true) : (false)",
              example: ternaryOperatorExample(),
-             image: "ternary", imageScaleiOS: 0.4, imageScaleMacPadOS: 1,
+             image: "ternary", imageScaleiOS: 0.4, imageScaleMacPadOS: 0.7,
              codeText: ternaryOperatorExample().code),
         
         Data(name: "Text Editor",
@@ -290,7 +290,7 @@ class nativeComponentsList: ObservableObject{
              colorNumber: 7,
              description: "A Text Editor is essentially a multiline TextField that can also be used to edit and change existing text",
              example: textEditorExample(),
-             image: "texteditor", imageScaleiOS: 0.4, imageScaleMacPadOS: 1,
+             image: "texteditor", imageScaleiOS: 0.4, imageScaleMacPadOS: 0.7,
              codeText: textEditorExample().code),
         
         Data(name: "Text Fields",
@@ -298,7 +298,7 @@ class nativeComponentsList: ObservableObject{
                  colorNumber: 8,
                  description: "Text Field are a way we can grab input from the user and assign it to a value where we can store and use for future uses, such as asking for their name",
                  example: textFieldExample(),
-             image: "textfield", imageScaleiOS: 0.25, imageScaleMacPadOS: 1,
+             image: "textfield", imageScaleiOS: 0.25, imageScaleMacPadOS: 0.6,
              codeText: textFieldExample().code),
         
         Data(name: "Toggle",
@@ -306,7 +306,7 @@ class nativeComponentsList: ObservableObject{
              colorNumber: 1,
              description: "Toggles are like on/off switches that we can use in a multiple of different ways, common examples include Show Advanced Options, Show Password(on SecureFields to remove the privacy dots), Closed Captioning, etc...",
              example: toggleExample(),
-             image: "toggle", imageScaleiOS: 0.5, imageScaleMacPadOS: 1,
+             image: "toggle", imageScaleiOS: 0.5, imageScaleMacPadOS: 0.9,
              codeText: toggleExample().code)
     ]
 }
