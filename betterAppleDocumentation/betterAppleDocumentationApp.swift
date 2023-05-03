@@ -12,7 +12,8 @@ struct betterAppleDocumentationApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                //.preferredColorScheme(.dark)
+            //orientationinfo() declared in listView file
+                .environmentObject(OrientationInfo())
         }
     }
 }

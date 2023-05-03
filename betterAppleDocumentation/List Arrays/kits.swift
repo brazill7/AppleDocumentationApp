@@ -25,7 +25,7 @@ class kits: ObservableObject{
              colorNumber: 1,
              description: "Creating a Map within Xcode is fairly simple, all we need to do is import MapKit at the top of our file, then give the map a Coordinate Region to center on, and a zoom ",
              example: importAMap(),
-             image: "importmap", imageScaleiOS: 0.3, imageScaleMacPadOS: 0.7,
+             image: "importmap", imageScaleiOS: 0.3, imageScaleMacPadOS: 0.6,
              codeText: importAMap().code)
     
     @Published var mapKitLocation =

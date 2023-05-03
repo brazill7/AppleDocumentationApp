@@ -9,9 +9,11 @@ import SwiftUI
 
 struct listView: View{
     @Environment(\.dismiss) var dismiss: DismissAction
+    @EnvironmentObject var orientationInfo: OrientationInfo
     
     @State private var columnVisibility = NavigationSplitViewVisibility.automatic
     @State var localData = appStorage()
+    @State var contentView = ContentView()
     @State private var isShowingCode = false
     @State private var isShowingImage = false
     @State private var refreshingView = false
@@ -32,11 +34,33 @@ struct listView: View{
     
     let pasteboard = UIPasteboard.general
     
+    
+
     var targetHeight: CGFloat{
         if UIDevice.current.userInterfaceIdiom == .phone{
-            return CGFloat(380)
+            if orientationInfo.orientation == .landscape{
+                return CGFloat(250)
+            }else{
+                return CGFloat(380)
+            }
         }else{
-            return CGFloat(700)
+            if orientationInfo.orientation == .landscape{
+                return CGFloat(380)
+            }else{
+                return CGFloat(700)
+            }
+        }
+    }
+    
+    func widthOfCodeView() -> CGFloat{
+        if UIDevice.current.userInterfaceIdiom == .phone{
+            if orientationInfo.orientation == .landscape{
+                return CGFloat(100)
+            }else{
+                return CGFloat(20)
+            }
+        }else{
+            return CGFloat(100)
         }
     }
     
@@ -96,6 +120,7 @@ struct listView: View{
             return self.magnificationMacPad
         }
     }
+    
     //MARK: - BODY
       
     var body: some View {
@@ -135,11 +160,11 @@ struct listView: View{
                                     .fill(self.isShowingCode ?
                                           color :
                                          .appColorBlack)
-                                    .frame(width: geo.size.width - 20, height: self.isShowingCode ? targetHeight : 1)
+                                    .frame(width: (geo.size.width - widthOfCodeView()), height: self.isShowingCode ? targetHeight : 1)
                                 RoundedRectangle(cornerRadius: 10)
                                     
                                     .stroke(Color.appColorBlack, lineWidth: 5)
-                                    .frame(width: geo.size.width - 20, height: self.isShowingCode ? targetHeight : 0)
+                                    .frame(width: (geo.size.width - widthOfCodeView()), height: self.isShowingCode ? targetHeight : 0)
                                     //.animation(.linear, value: isShowingCode)
                                     .overlay{
                                         
@@ -272,7 +297,17 @@ struct listView: View{
                                 Spacer()
                             }
                         AnyView(example)
-                            
+            
+//                        Group {
+//                                    if orientation.isPortrait {
+//                                        Text("Portrait")
+//                                        Text("e: \(lastOrientation)")
+//                                    } else if orientation.isLandscape {
+//                                        Text("Landscape")
+//                                        Text("e: \(lastOrientation)")
+//                                    }
+//                                }
+                        
                     }.scrollIndicators(.hidden)
                         .toolbar({
                             if UIDevice.current.userInterfaceIdiom == .phone{
@@ -294,14 +329,57 @@ struct listView: View{
                         })
                 }
             }
-            
 //        }.sheet(isPresented: $showingSheet){
 //            //AnyView(example)
+        }.onAppear{
+            print(orientationInfo.orientation)
         }
     }
 }
 
 
+
+//MARK: - Structs and Classes needed above
+
+final class OrientationInfo: ObservableObject {
+    enum Orientation {
+        case portrait
+        case landscape
+    }
+    
+    @Published var orientation: Orientation
+    
+    private var _observer: NSObjectProtocol?
+    
+    init() {
+        // fairly arbitrary starting value for 'flat' orientations
+        if UIDevice.current.orientation.isLandscape {
+            self.orientation = .landscape
+        }
+        else {
+            self.orientation = .portrait
+        }
+        
+        // unowned self because we unregister before self becomes invalid
+        _observer = NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: nil) { [unowned self] note in
+            guard let device = note.object as? UIDevice else {
+                return
+            }
+            if device.orientation.isPortrait {
+                self.orientation = .portrait
+            }
+            else if device.orientation.isLandscape {
+                self.orientation = .landscape
+            }
+        }
+    }
+    
+    deinit {
+        if let observer = _observer {
+            NotificationCenter.default.removeObserver(observer)
+        }
+    }
+}
 
 
 private struct DeferredViewModifier: ViewModifier {

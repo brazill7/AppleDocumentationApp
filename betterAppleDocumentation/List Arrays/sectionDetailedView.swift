@@ -64,7 +64,8 @@ struct sectionDetailedView: View {
                             
                         }else{
                             Rectangle()
-                                .foregroundColor(.clear)
+                                .foregroundColor(.appColorWhite)
+                                .blur(radius: 0.3)
                                 .padding(EdgeInsets(top: -8, leading: -800, bottom: -8, trailing: -800))
                         }
                     }
@@ -97,7 +98,8 @@ struct sectionDetailedView: View {
                      
                  }else{
                      Rectangle()
-                         .foregroundColor(.clear)
+                         .foregroundColor(.appColorWhite)
+                         .blur(radius: 0.3)
                          .padding(EdgeInsets(top: -8, leading: -800, bottom: -8, trailing: -800))
                  }
              }
