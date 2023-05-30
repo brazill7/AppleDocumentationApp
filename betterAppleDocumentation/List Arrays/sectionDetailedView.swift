@@ -116,9 +116,10 @@ struct sectionDetailedView: View {
             }label: {
                 Image(systemName: "gear")
                     .foregroundColor(.gray)
-                    .font(.system(size: 25))
+                    .font(.system(size: 27))
                     .fontWeight(.bold)
             }
+
         })
     }
 }

@@ -47,6 +47,77 @@ class kits: ObservableObject{
          imageScaleiOS: 0.15, imageScaleMacPadOS: 0.3,
          codeText: "")
     
+    //MARK: - WeatherKit
+    @Published var permissionsWeather =
+    Data(name: "WeatherKit Permissions",
+         sfSymbol: "checkerboard.shield",
+         colorNumber: 1,
+         description: "",
+         example: weatherKitPermissions(),
+         image: "",
+         imageScaleiOS: 1, imageScaleMacPadOS: 1,
+         codeText: "")
+    
+    @Published var grabWeather =
+    Data(name: "Current Weather Data",
+         sfSymbol: "cloud",
+         colorNumber: 5,
+         description: "Using Apple's WeatherKit Library and API we can grab all kinds of weather data, in this example we are grabbing the current weather data.",
+         example: currentWeather(),
+         image: "currentWeather",
+         imageScaleiOS: 0.095, imageScaleMacPadOS: 0.18,
+         codeText: currentWeather().code)
+    
+    @Published var hourlyWeather =
+    Data(name: "Hourly Weather Data",
+         sfSymbol: "cloud.rain",
+         colorNumber: 2,
+         description: "We can use a filter modifier to our HourWeather attribute to grab and display each hours individual data by the hour, for as many hours as we specify",
+         example: hourWeather(),
+         image: "hourWeather",
+         imageScaleiOS: 0.1, imageScaleMacPadOS: 0.2,
+         codeText: hourWeather().code)
+    
+    @Published var hourlyWeatherChart =
+    Data(name: "Hourly Weather Chart",
+         sfSymbol: "chart.xyaxis.line",
+         colorNumber: 7,
+         description: "Using the same filter method and ForEach loops in the last example 'Hourly Weather Data' we can then pass those values into Swift Charts to display a Chart of our temperatures",
+         example: hourWeatherChart(),
+         image: "hourlyWeatherChart",
+         imageScaleiOS: 0.1, imageScaleMacPadOS: 0.2,
+         codeText: hourWeatherChart().code)
+
+    @Published var barChart =
+    Data(name: "Bar Chart",
+         sfSymbol: "chart.bar",
+         colorNumber: 5,
+         description: "In this example, the programmed conducted a survey in his workplace and got a tally of everyones favorite seasons, and then input this into a BarChart, with charts there are way too many modifiers for me to cover so I encourage you to go to Apple Developer Documentation and check those out.",
+         example: barChartExample(),
+         image: "barchart",
+         imageScaleiOS: 0.25, imageScaleMacPadOS: 0.5,
+         codeText: barChartExample().code)
+    
+    @Published var lineChart =
+    Data(name: "Line Chart",
+         sfSymbol: "chart.xyaxis.line",
+         colorNumber: 2,
+         description: "In this example, we are taking example weather data, and then input this into a Line Chart, with charts there are way too many modifiers for me to cover so I encourage you to go to Apple Developer Documentation and check those out.",
+         example: lineChartExample(),
+         image: "lineChart",
+         imageScaleiOS: 0.20, imageScaleMacPadOS: 0.6,
+         codeText: lineChartExample().code)
+    
+    @Published var pointRectChart =
+    Data(name: "Point / Rectangle Chart",
+         sfSymbol: "chart.dots.scatter",
+         colorNumber: 1,
+         description: "With charts there are way too many modifiers for me to cover so I encourage you to go to Apple Developer Documentation and check those out.",
+         example: pointRectangleChartExample(),
+         image: "pointRect",
+         imageScaleiOS: 0.35, imageScaleMacPadOS: 0.7,
+         codeText: pointRectangleChartExample().code)
+    
     
 }
 
@@ -56,7 +127,21 @@ class kitExamplesList: ObservableObject{
         kitData(name: "MapKit",
                 color: Color.brown,
                 sfSymbol: "map",
-                data: [kits().mapKitImport, kits().mapKitLocation, kits().mapKitAnnotations])
+                data: [kits().mapKitImport, kits().mapKitLocation, kits().mapKitAnnotations]),
+        
+        kitData(name: "Charts",
+                color: Color.indigo,
+                sfSymbol: "chart.line.flattrend.xyaxis",
+                data: [kits().barChart, kits().lineChart, kits().pointRectChart]),
+        
+        kitData(name: "WeatherKit",
+                color: Color.yellow,
+                sfSymbol: "cloud.sun",
+                data: [kits().permissionsWeather, kits().grabWeather, kits().hourlyWeather, kits().hourlyWeatherChart])
+
         ]
+    
+    
+    
 
 }

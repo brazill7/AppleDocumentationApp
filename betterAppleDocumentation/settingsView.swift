@@ -43,12 +43,15 @@ struct settingsView: View {
                 Toggle("Description of Uses for Examples", isOn: $localData.description)
                     .padding()
                 /// link to survey
-                HStack{
-                    Text("Suggest Additions: ")
-                   Link("Link  \(Image(systemName: "link"))", destination: URL(string: "https://forms.gle/GGKykgipBAUJegiT7")!)
+
+                   Link("Suggest Additions  \(Image(systemName: "link"))", destination: URL(string: "https://forms.gle/GGKykgipBAUJegiT7")!)
                         .buttonStyle(.borderedProminent)
-                        
-                }
+
+                NavigationLink{
+                    tipView()
+                }label:{
+                    Text("\(Image(systemName: "heart")) Tip")
+                }.buttonStyle(.borderedProminent)
                 Spacer()
             
                 

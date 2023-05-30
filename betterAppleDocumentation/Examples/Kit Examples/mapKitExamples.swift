@@ -238,6 +238,7 @@ final class locationManagerViewModel: NSObject, ObservableObject, CLLocationMana
         //this sets the users current Lat/Long as latestLocation
         guard let latestLocation = locations.first else{
             return print("error")
+            
         }
         
         DispatchQueue.main.async {
